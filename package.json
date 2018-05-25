@@ -1,0 +1,19 @@
+{
+  "name": "coco-kitchen",
+  "version": "1.0.0",
+  "description": "Recipe finder for coconut lovers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makmandy/coco-kitchen.git"
+  },
+  "author": "Mandy Mak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makmandy/coco-kitchen/issues"
+  },
+  "homepage": "https://github.com/makmandy/coco-kitchen#readme"
+}
