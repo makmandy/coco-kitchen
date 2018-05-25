@@ -4,7 +4,9 @@
   "description": "Recipe finder for coconut lovers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +15,23 @@
   "author": "Mandy Mak",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/makmandy/coco-kitchen/issues"
+    "url": "https://github.com/axios/axios/issues"
   },
-  "homepage": "https://github.com/makmandy/coco-kitchen#readme"
+  "homepage": "https://github.com/makmandy/coco-kitchen#readme",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "axios": "0.18.0",
+    "body-parser": "^1.17.0",
+    "express": "^4.15.0",
+    "mongoose": "^4.9.6",
+    "mysql": "^2.15.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
 }
