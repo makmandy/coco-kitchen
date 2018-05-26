@@ -22,4 +22,19 @@ const getRecipesByIngredient = (ingredient, callback) => {
     }
   });
 };
+
+const getCocoRecipes = (callback) => {
+  request.get('http://www.recipepuppy.com/api/?q=coconut')
+  .on('response', (response) => {
+    response.on('data', (data) => {
+      var recipes = JSON.parse(data).results;
+      console.log(recipes);
+      callback(recipes);
+      });
+    });
+};
+
+
 module.exports.getRecipesByIngredient = getRecipesByIngredient;
+module.exports.getCocoRecipes = getCocoRecipes;
+

@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      recipes: [],
+      recipe: []
     },
 
     this.search = this.search.bind(this);
@@ -18,9 +18,11 @@ class App extends React.Component {
 
   componentDidMount() {
     axios.get('/recipes')
-      .then(({ data }) => {
+      .then(console.log('request sent'))
+        .then(
+          (recipes) => {
         this.setState({
-          recipes: data,
+          recipes: recipes,
         });
       });
   }

@@ -1,12 +1,13 @@
 import React from 'react';
+import RecipeListItem from './RecipeListItem.jsx';
 
-var RecipeList = ({recipes}) => {
+var RecipeList = (props) => {
   return (
     <div>
+        <h3>CocoRecipe of the Day</h3>
+        <div>{props.recipes}</div>
       <ul>
-        {recipes.map((recipe) => {
-          <RecipeListItem recipe={recipe}/>
-        })}
+        {/* {props.recipes.map(recipe => <RecipeListItem recipe={recipe}/>)} */}
       </ul>
     </div>
   )

@@ -1,7 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const {saveRecipe, saveIngredient, associateWithIngredient} = require('../database/index.js');
-const {getRecipesByIngredient} = require('../helpers/recipePuppy.js');
+const {saveRecipe, saveIngredient} = require('../database/index.js');
+const {getRecipesByIngredient, getCocoRecipes} = require('../helpers/recipePuppy.js');
+const {connection} = require('../database/index.js');
+const mysql = require('mysql');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3306;
@@ -25,9 +28,18 @@ app.post('/recipes', (req, res) => {
 });
 
 app.get('/recipes', (req, res) => {
-  console.log('res.results: ', res.results);
-  getRecipesByIngredient('coconut', (recipes) => {
-    res.send(recipes.results);
+  getCocoRecipes((recipes) => {
+    var cocoRecipes = [];
+    recipes.forEach((item) => {
+      var recipe = [];
+      var name = item.title;
+      var url = item.href;
+      var imgurl = item.thumbnail;
+      recipe.push(name, url, imgurl);
+      cocoRecipes.push(recipe);
+    })
+    res.send(cocoRecipes);
+    
   });
 });
 

@@ -5,7 +5,7 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      term: 'Enter an ingredient here'
+      term: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -24,7 +24,7 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <input value={this.state.term} onChange={(e) => this.onChange} onSubmit={this.search}/>
+        <input type="text" value={this.state.term} onChange ={this.onChange} onSubmit={this.search}></input>
         <button onClick={this.search}>Get cocorecipes!</button>
         </div>
     )
