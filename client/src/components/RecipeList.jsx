@@ -7,7 +7,6 @@ const renderRecipeList = (props) => {
   }
   return (
     <ul>
-      some coco-containing recipes
     {props.recipes.map(recipe => <RecipeListItem recipe={recipe} />)}
     </ul>
   );

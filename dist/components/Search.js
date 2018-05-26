@@ -51,7 +51,7 @@ var Search = function (_React$Component) {
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement('input', { type: 'text', value: this.state.term, onChange: this.onChange, onSubmit: this.search })
+          _react2.default.createElement('input', { type: 'text', value: this.state.term, placeholder: 'type an ingredient to begin!', onChange: this.onChange, onSubmit: this.search })
         ),
         _react2.default.createElement(
           'div',

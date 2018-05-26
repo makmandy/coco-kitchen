@@ -21,7 +21,6 @@ var renderRecipeList = function renderRecipeList(props) {
   return _react2.default.createElement(
     'ul',
     null,
-    'some coco-containing recipes',
     props.recipes.map(function (recipe) {
       return _react2.default.createElement(_RecipeListItem2.default, { recipe: recipe });
     })
