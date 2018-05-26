@@ -6,10 +6,10 @@ USE kitchen;
 
 
 DROP TABLE IF EXISTS `ingredients`;
+
 CREATE TABLE `ingredients` (
   `id`              INT(10) NOT NULL AUTO_INCREMENT,
   `name`            VARCHAR(100) NOT NULL,
-  `count`           INT(10) NOT NULL DEFAULT 0,
   PRIMARY KEY(`id`)
 );
 
