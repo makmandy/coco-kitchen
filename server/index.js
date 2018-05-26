@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const {saveRecipe, associateWithIngredient} = require('../database/index.js');
+const {saveRecipe, saveIngredient, associateWithIngredient} = require('../database/index.js');
 const {getRecipesByIngredient} = require('../helpers/recipePuppy.js');
 
 const app = express();
@@ -13,10 +13,12 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.post('/recipes', (req, res) => {
   var ingredient = req.body.ingredient;
-  getRecipesByIngredient(ingredient, (res) => {
-    var recipes = res.results;
+  getRecipesByIngredient(ingredient, (resp) => {
+    var recipes = resp.results;
+    saveIngredient(ingredient);
     recipes.forEach((recipe) => {
       saveRecipe(recipe);
+      res.send();
     });
   });
 });

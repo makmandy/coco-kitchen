@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const isInDatabase = require('../helpers/databaseHelpers');
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -29,15 +30,16 @@ const saveRecipe = (recipe) => {
 };
 
 const saveIngredient = (ingredient) => {
-  let ingredient = JSON.stringify(ingredient);
-  let queryString = `INSERT INTO ingredients (name) |
-  VALUES (${ingredient})`;
+  let ing = JSON.stringify(ingredient);
+  let queryString = `INSERT INTO ingredients (name) \
+  VALUES (${ing})`;
 
   connection.query(queryString, (err, result) => {
     if (err) throw err;
-    console.log('Record inserted into ingredients!')
-  })
-}
+    console.log('Record inserted into ingredients!');
+  });
+};
+
 
 const associateWithIngredient = (recipe) => {
   let queryString = `SELECT ingredients_recipes.id_ingredient \
@@ -51,5 +53,7 @@ const associateWithIngredient = (recipe) => {
 
 module.exports.saveRecipe = saveRecipe;
 module.exports.associateWithIngredient = associateWithIngredient;
+module.exports.saveIngredient = saveIngredient;
+module.exports.connection = connection;
 
 // mysql.server start

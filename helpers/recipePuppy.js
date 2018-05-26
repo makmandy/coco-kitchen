@@ -18,7 +18,7 @@ const getRecipesByIngredient = (ingredient, callback) => {
           });
         });
     } else if (res.statusCode === 200) {
-      callback(JSON.parse(body));
+      callback(JSON.parse(body.replace(/\r?\n|\r/g, '')));
     }
   });
 };
