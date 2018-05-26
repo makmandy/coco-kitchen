@@ -34,8 +34,7 @@ app.get('/recipes', (req, res) => {
       var recipe = [];
       var name = item.title;
       var url = item.href;
-      var imgurl = item.thumbnail;
-      recipe.push(name, url, imgurl);
+      recipe.push(name, url);
       cocoRecipes.push(recipe);
     });
     res.send(cocoRecipes);

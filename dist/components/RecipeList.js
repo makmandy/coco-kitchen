@@ -15,12 +15,13 @@ var _RecipeListItem2 = _interopRequireDefault(_RecipeListItem);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var renderRecipeList = function renderRecipeList(props) {
-  if (props.recipes == null) {
+  if (props.recipes === null) {
     return null;
   }
   return _react2.default.createElement(
     'ul',
     null,
+    'some coco-containing recipes',
     props.recipes.map(function (recipe) {
       return _react2.default.createElement(_RecipeListItem2.default, { recipe: recipe });
     })

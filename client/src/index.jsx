@@ -18,11 +18,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component did mount');
     axios.get('/recipes')
-      .then(console.log('request sent'))
       .then(response => {
-        console.log('response in componentDidMount', response);
         this.setState({
           recipes: response.data,
         });
@@ -45,7 +42,9 @@ class App extends React.Component {
     console.log('rendering');
     return (
       <div>
-        <h1>CocoKitchen</h1>
+        <br></br>
+        <h1 id="h1">CocoKitchen</h1>
+        <h4 id="heading">recipe finder for coconut lovers</h4>
         <Search search={this.search} />
         <RecipeList recipes={this.state.recipes} />
       </div>

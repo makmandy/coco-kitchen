@@ -54,9 +54,7 @@ var App = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      console.log('component did mount');
-      _axios2.default.get('/recipes').then(console.log('request sent')).then(function (response) {
-        console.log('response in componentDidMount', response);
+      _axios2.default.get('/recipes').then(function (response) {
         _this2.setState({
           recipes: response.data
         });
@@ -86,10 +84,16 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           'h1',
-          null,
+          { id: 'h1' },
           'CocoKitchen'
+        ),
+        _react2.default.createElement(
+          'h4',
+          { id: 'heading' },
+          'recipe finder for coconut lovers'
         ),
         _react2.default.createElement(_Search2.default, { search: this.search }),
         _react2.default.createElement(_RecipeList2.default, { recipes: this.state.recipes })

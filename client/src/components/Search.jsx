@@ -21,9 +21,12 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.term} onChange ={this.onChange} onSubmit={this.search}></input>
-        <br id="break"></br><br></br>
-        <button onClick={this.search}>Get cocoRecipes!</button>
+        <div>
+          <input type="text" value={this.state.term} onChange ={this.onChange} onSubmit={this.search}></input>
+          </div>
+          <div>
+        <button onClick={this.search}>get cocoRecipes!</button>
+        </div>
       </div>
     )
   }

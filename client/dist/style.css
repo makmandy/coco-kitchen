@@ -1,9 +1,12 @@
-body {
+h1 {
+  color: #6f4291;
+}
+  body {
   background-image: url("cocoKitchen-bg.png");
-  font-family: monospace;
   color: #63a8;
   background-repeat: no-repeat;
   background-size: auto;
+  font-family: monospace;
   text-align: center;
 }
 
@@ -12,8 +15,42 @@ button {
   color: #fff;
   size: 14px;
   border-radius: 5px;
+  font-family: 'Jura', monospace;
+  padding: 3px;
 }
 
 #break {
   font-size: 8px;
+}
+
+li {
+  list-style-type: none;
+  border: 2px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+a{
+  color: #63a8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #6f4291;
+}
+
+input[type=text] {
+  width: 20%;
+  border-radius: 5px;
+  border-color: #63a8; 
+  border-style: solid;
+  border-width: 1px;
+}
+#heading {
+  line-height: 0.2;
+}
+
+#h1 {
+  line-height: 0.3;
 }
