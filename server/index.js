@@ -37,9 +37,8 @@ app.get('/recipes', (req, res) => {
       var imgurl = item.thumbnail;
       recipe.push(name, url, imgurl);
       cocoRecipes.push(recipe);
-    })
-    res.send(cocoRecipes);
-    
+      console.log('cocorecipes', cocoRecipes);
+    });
   });
 });
 

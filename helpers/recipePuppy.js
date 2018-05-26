@@ -28,7 +28,6 @@ const getCocoRecipes = (callback) => {
   .on('response', (response) => {
     response.on('data', (data) => {
       var recipes = JSON.parse(data).results;
-      console.log(recipes);
       callback(recipes);
       });
     });
