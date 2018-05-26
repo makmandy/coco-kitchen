@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const isInDatabase = require('../helpers/databaseHelpers');
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -23,10 +22,9 @@ const saveRecipe = (recipe) => {
   VALUES (${name}, ${url}, ${imgurl})`;
 
   connection.query(queryString, (err, result) => {
-      if (err) throw err;
-      console.log('Record inserted into recipes!');
-    }
-  );
+    if (err) throw err;
+    console.log('Record inserted into recipes!');
+  });
 };
 
 const saveIngredient = (ingredient) => {
@@ -41,18 +39,7 @@ const saveIngredient = (ingredient) => {
 };
 
 
-const associateWithIngredient = (recipe) => {
-  let queryString = `SELECT ingredients_recipes.id_ingredient \
-    FROM ingredients_recipes INNER JOIN recipes WHERE id_recipe = recipes.id`;
-  
-    connection.query(queryString, (err, result) => {
-    connection.query(`INSERT INTO ingredients_recipes (id_ingredient, id_recipe) \
-    VALUE (${result}, ${recipe.id})`);
-  });
-};
-
 module.exports.saveRecipe = saveRecipe;
-module.exports.associateWithIngredient = associateWithIngredient;
 module.exports.saveIngredient = saveIngredient;
 module.exports.connection = connection;
 

@@ -16,6 +16,7 @@ app.post('/recipes', (req, res) => {
   getRecipesByIngredient(ingredient, (resp) => {
     var recipes = resp.results;
     saveIngredient(ingredient);
+    console.log(recipes);
     recipes.forEach((recipe) => {
       saveRecipe(recipe);
       res.send();
@@ -24,8 +25,9 @@ app.post('/recipes', (req, res) => {
 });
 
 app.get('/recipes', (req, res) => {
-  getRecipesByIngredient(req.body.ingredient, (recipes) => {
-    res.send(recipes);
+  console.log('res.results: ', res.results);
+  getRecipesByIngredient('coconut', (recipes) => {
+    res.send(recipes.results);
   });
 });
 
