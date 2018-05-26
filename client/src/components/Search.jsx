@@ -25,8 +25,9 @@ class Search extends React.Component {
     return (
       <div>
         <input type="text" value={this.state.term} onChange ={this.onChange} onSubmit={this.search}></input>
-        <button onClick={this.search}>Get cocorecipes!</button>
-        </div>
+        <br id="break"></br><br></br>
+        <button onClick={this.search}>Get cocoRecipes!</button>
+      </div>
     )
   }
 }

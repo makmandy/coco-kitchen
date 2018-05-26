@@ -3,22 +3,22 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  database: 'kitchen'
+  database: 'kitchen',
 });
 
 connection.connect((err) => {
   if (err) {
     console.error(err);
   } else {
-  console.log('Connected to database!');
+    console.log('Connected to database!');
   }
 });
 
 const saveRecipe = (recipe) => {
-  let name = JSON.stringify(recipe.title);
-  let url = JSON.stringify(recipe.href);
-  let imgurl = JSON.stringify(recipe.thumbnail);
-  let queryString = `INSERT INTO recipes (name, url, imgurl) \
+  const name = JSON.stringify(recipe.title);
+  const url = JSON.stringify(recipe.href);
+  const imgurl = JSON.stringify(recipe.thumbnail);
+  const queryString = `INSERT INTO recipes (name, url, imgurl) \
   VALUES (${name}, ${url}, ${imgurl})`;
 
   connection.query(queryString, (err, result) => {
@@ -28,8 +28,8 @@ const saveRecipe = (recipe) => {
 };
 
 const saveIngredient = (ingredient) => {
-  let ing = JSON.stringify(ingredient);
-  let queryString = `INSERT INTO ingredients (name) \
+  const ing = JSON.stringify(ingredient);
+  const queryString = `INSERT INTO ingredients (name) \
   VALUES (${ing})`;
 
   connection.query(queryString, (err, result) => {
@@ -44,3 +44,6 @@ module.exports.saveIngredient = saveIngredient;
 module.exports.connection = connection;
 
 // mysql.server start
+
+// hi coco :)
+// hi googi <3

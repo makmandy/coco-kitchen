@@ -25,10 +25,11 @@ const getRecipesByIngredient = (ingredient, callback) => {
 
 const getCocoRecipes = (callback) => {
   request.get('http://www.recipepuppy.com/api/?q=coconut')
-  .on('response', (response) => {
-    response.on('data', (data) => {
-      var recipes = JSON.parse(data).results;
-      callback(recipes);
+    .on('response', (response) => {
+      response.on('data', (data) => {
+        const json = JSON.parse(data);
+        const recipes = json.results;
+        callback(recipes);
       });
     });
 };

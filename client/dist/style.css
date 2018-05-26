@@ -4,10 +4,16 @@ body {
   color: #63a8;
   background-repeat: no-repeat;
   background-size: auto;
+  text-align: center;
 }
 
 button {
   background-color: #63a8;
   color: #fff;
+  size: 14px;
   border-radius: 5px;
+}
+
+#break {
+  font-size: 8px;
 }

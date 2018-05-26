@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "webpack": "webpack -d --watch",
-    "nodemon": "nodemon server/index.js",
-    "test": "react-scripts test --env=jsdom"
+    "nodemon": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",

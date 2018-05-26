@@ -53,10 +53,12 @@ var Search = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement('input', { type: 'text', value: this.state.term, onChange: this.onChange, onSubmit: this.search }),
+        _react2.default.createElement('br', { id: 'break' }),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
           { onClick: this.search },
-          'Get cocorecipes!'
+          'Get cocoRecipes!'
         )
       );
     }
