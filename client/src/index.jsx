@@ -13,7 +13,6 @@ class App extends React.Component {
       recipes: []
     },
 
-    console.log('constructor');
     this.search = this.search.bind(this);
   }
 
@@ -23,16 +22,26 @@ class App extends React.Component {
         this.setState({
           recipes: response.data,
         });
-      });
+      })
+      .catch((err) => { console.error(err) });
   }
 
   search(input) {
+    console.log('searching');
     axios.post('/recipes', {
       ingredient: input
-    })
-      .then(({ data }) => {
+    }).then(() => {
+      return axios.get('/recipes', {
+        params: {
+          ingredient: input
+        }
+      })})
+      .then(({data}) => {
+        console.log('data', data)
         this.setState({
           recipes: data
+        }, () => {
+          console.log('what does recipes look like', this.state.recipes)
         });
       })
       .catch((err) => { console.error(err) });

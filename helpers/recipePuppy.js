@@ -1,6 +1,10 @@
 const request = require('request');
 
-const getCocoRecipes = (callback) => {
+const getCocoRecipes = (params, callback) => {
+  /* if params are not provided,
+q=coconut
+otherwise, append &i= ...
+*/
   let body = [];
   request.get('http://www.recipepuppy.com/api/?q=coconut')
     .on('response', (response) => {
@@ -17,6 +21,24 @@ const getCocoRecipes = (callback) => {
       callback(recipes);
     });
 };
+  // if (ingredient === null) {
+  //     });
+  // } else {
+  //   request.get(`http://www.recipepuppy.com/api/?q=coconut&i=${ingredient}`)
+  //     .on('response', (response) => {
+  //       response.on('data', (chunk) => {
+  //         body.push(chunk);
+  //       });
+  //     })
+  //     .on('end', () => {
+  //       body = Buffer.concat(body).toString();
+  //       const json = JSON.parse(body);
+  //       const recipes = json.results;
+  //       // console.log('json', json);
+  //       // console.log('recipes', recipes);
+  //       callback(recipes);
+  //     });
+  // }
 
 const getRecipesByIngredient = (ingredient, callback) => {
   const options = {

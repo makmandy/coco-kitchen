@@ -9,6 +9,7 @@ class Search extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    //this.search = this.search.bind(this);
   }
 
   onChange(e) {
@@ -18,14 +19,15 @@ class Search extends React.Component {
     console.log(this.state.term);
   }
 
+
   render() {
     return (
       <div>
         <div>
-          <input type="text" value={this.state.term} placeholder="type an ingredient to begin!" onChange ={this.onChange} onSubmit={this.search}></input>
+          <input type="text" value={this.state.term} placeholder="type an ingredient to begin!" onChange ={this.onChange}></input>
           </div>
           <div>
-        <button onClick={this.search}>get cocoRecipes!</button>
+        <button onClick={()=> {console.log(this.props); this.props.search(this.state.term)}}>get cocoRecipes!</button>
         </div>
       </div>
     )

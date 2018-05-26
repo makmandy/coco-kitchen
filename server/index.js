@@ -28,7 +28,8 @@ app.post('/recipes', (req, res) => {
 });
 
 app.get('/recipes', (req, res) => {
-  getCocoRecipes((recipes) => {
+  console.log('req.params.ingredient', req.params.ingredient);
+  getCocoRecipes(req.params.ingredient, (recipes) => {
     var cocoRecipes = [];
     recipes.forEach((item) => {
       var recipe = [];
@@ -37,9 +38,11 @@ app.get('/recipes', (req, res) => {
       recipe.push(name, url);
       cocoRecipes.push(recipe);
     });
+    console.log('what are the recipes', cocoRecipes)
     res.send(cocoRecipes);
   });
 });
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port} :)`);

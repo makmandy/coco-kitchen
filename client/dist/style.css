@@ -1,5 +1,8 @@
 h1 {
-  color: #6f4291;
+  color: #8065a5;
+  font-size: 28px;
+  font-family: 'jura';
+  font-weight: 900;
 }
   body {
   background-image: url("cocoKitchen-bg.png");
