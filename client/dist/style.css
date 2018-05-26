@@ -1,0 +1,13 @@
+body {
+  background-image: url("cocoKitchen-bg.png");
+  font-family: monospace;
+  color: #63a8;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+button {
+  background-color: #63a8;
+  color: #fff;
+  border-radius: 5px;
+}
