@@ -10,19 +10,21 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      recipe: []
+      recipes: []
     },
 
+    console.log('constructor');
     this.search = this.search.bind(this);
   }
 
   componentDidMount() {
+    console.log('component did mount');
     axios.get('/recipes')
       .then(console.log('request sent'))
-        .then(
-          (recipes) => {
+      .then(response => {
+        console.log('response in componentDidMount', response);
         this.setState({
-          recipes: recipes,
+          recipes: response.data,
         });
       });
   }
@@ -31,24 +33,25 @@ class App extends React.Component {
     axios.post('/recipes', {
       ingredient: input
     })
-    .then(({data}) => {
-      this.setState({
-        recipes: data
-      });
-    })
-    .catch((err) => { console.error(err)});
+      .then(({ data }) => {
+        this.setState({
+          recipes: data
+        });
+      })
+      .catch((err) => { console.error(err) });
   }
 
   render() {
+    console.log('rendering');
     return (
       <div>
         <h1>CocoKitchen</h1>
-        <Search search={this.search}/>
-        <RecipeList recipes={this.state.recipes}/>
+        <Search search={this.search} />
+        <RecipeList recipes={this.state.recipes} />
       </div>
     )
 
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

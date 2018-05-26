@@ -38,8 +38,8 @@ app.get('/recipes', (req, res) => {
       recipe.push(name, url, imgurl);
       cocoRecipes.push(recipe);
     });
-  res.send(cocoRecipes);
-});
+    res.send(cocoRecipes);
+  });
 });
 
 app.listen(port, () => {

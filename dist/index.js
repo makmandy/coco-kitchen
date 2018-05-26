@@ -43,8 +43,9 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      recipe: []
-    }, _this.search = _this.search.bind(_this);
+      recipes: []
+    }, console.log('constructor');
+    _this.search = _this.search.bind(_this);
     return _this;
   }
 
@@ -53,9 +54,11 @@ var App = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios2.default.get('/recipes').then(console.log('request sent')).then(function (recipes) {
+      console.log('component did mount');
+      _axios2.default.get('/recipes').then(console.log('request sent')).then(function (response) {
+        console.log('response in componentDidMount', response);
         _this2.setState({
-          recipes: recipes
+          recipes: response.data
         });
       });
     }
@@ -79,6 +82,7 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log('rendering');
       return _react2.default.createElement(
         'div',
         null,

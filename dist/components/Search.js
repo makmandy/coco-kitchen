@@ -40,11 +40,7 @@ var Search = function (_React$Component) {
       this.setState({
         term: e.target.value
       });
-    }
-  }, {
-    key: 'search',
-    value: function search() {
-      this.props.search(this.state.term);
+      console.log(this.state.term);
     }
   }, {
     key: 'render',

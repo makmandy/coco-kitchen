@@ -1,16 +1,19 @@
 import React from 'react';
 import RecipeListItem from './RecipeListItem.jsx';
 
-var RecipeList = (props) => {
+const renderRecipeList = (props) => {
+  if (props.recipes == null) {
+    return null;
+  }
   return (
-    <div>
-        <h3>CocoRecipe of the Day</h3>
-        <div>{props.recipes}</div>
-      <ul>
-        {/* {props.recipes.map(recipe => <RecipeListItem recipe={recipe}/>)} */}
-      </ul>
-    </div>
-  )
+    <ul>
+    {props.recipes.map(recipe => <RecipeListItem recipe={recipe} />)}
+    </ul>
+  );
+};
+
+const RecipeList = (props) => {
+  return renderRecipeList(props);
 };
 
 export default RecipeList;

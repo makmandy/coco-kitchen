@@ -18,10 +18,9 @@ var RecipeListItem = function RecipeListItem(_ref) {
     null,
     _react2.default.createElement(
       'a',
-      { href: recipe.href },
-      recipe.title
-    ),
-    _react2.default.createElement('img', { src: recipe.thumbnail })
+      { href: recipe[1] },
+      recipe[0]
+    )
   );
 };
 

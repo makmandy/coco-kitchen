@@ -14,22 +14,21 @@ var _RecipeListItem2 = _interopRequireDefault(_RecipeListItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var RecipeList = function RecipeList(props) {
+var renderRecipeList = function renderRecipeList(props) {
+  if (props.recipes == null) {
+    return null;
+  }
   return _react2.default.createElement(
-    'div',
+    'ul',
     null,
-    _react2.default.createElement(
-      'h3',
-      null,
-      'CocoRecipe of the Day'
-    ),
-    _react2.default.createElement(
-      'div',
-      null,
-      props.recipes
-    ),
-    _react2.default.createElement('ul', null)
+    props.recipes.map(function (recipe) {
+      return _react2.default.createElement(_RecipeListItem2.default, { recipe: recipe });
+    })
   );
+};
+
+var RecipeList = function RecipeList(props) {
+  return renderRecipeList(props);
 };
 
 exports.default = RecipeList;
