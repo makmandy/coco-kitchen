@@ -1,9 +1,8 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'coconut',
   database: 'kitchen'
 });
 
@@ -15,28 +14,42 @@ connection.connect((err) => {
   }
 });
 
-var saveRecipe = (recipe) => {
-  var name = recipe.name;
-  var url = recipe.href;
-  var imgurl = recipe.thumbnail;
-  var queryString = `INSERT INTO recipes (name, url, imgurl) \
-  VALUES (${name}, ${url}, ${description}, ${imgurl})`;
+const saveRecipe = (recipe) => {
+  let name = JSON.stringify(recipe.title);
+  let url = JSON.stringify(recipe.href);
+  let imgurl = JSON.stringify(recipe.thumbnail);
+  let queryString = `INSERT INTO recipes (name, url, imgurl) \
+  VALUES (${name}, ${url}, ${imgurl})`;
 
   connection.query(queryString, (err, result) => {
       if (err) throw err;
-      console.log('Record inserted into Recipes');
+      console.log('Record inserted into recipes!');
     }
   );
 };
 
-var associateWithIngredient = (recipe) => {
-  var queryString = `SELECT ingredients_recipes.id_ingredient \
-    FROM ingredients_recipes INNER JOIN recipes WHERE id_recipe = recipes.id`;
+const saveIngredient = (ingredient) => {
+  let ingredient = JSON.stringify(ingredient);
+  let queryString = `INSERT INTO ingredients (name) |
+  VALUES (${ingredient})`;
+
   connection.query(queryString, (err, result) => {
+    if (err) throw err;
+    console.log('Record inserted into ingredients!')
+  })
+}
+
+const associateWithIngredient = (recipe) => {
+  let queryString = `SELECT ingredients_recipes.id_ingredient \
+    FROM ingredients_recipes INNER JOIN recipes WHERE id_recipe = recipes.id`;
+  
+    connection.query(queryString, (err, result) => {
     connection.query(`INSERT INTO ingredients_recipes (id_ingredient, id_recipe) \
     VALUE (${result}, ${recipe.id})`);
-  }
+  });
 };
 
 module.exports.saveRecipe = saveRecipe;
 module.exports.associateWithIngredient = associateWithIngredient;
+
+// mysql.server start

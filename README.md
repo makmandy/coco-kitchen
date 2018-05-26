@@ -1,2 +1,2 @@
 # coco-kitchen
-Recipe finder for coconut lovers
+Welcome to CocoKitchen, a recipe finder for coconut lovers!

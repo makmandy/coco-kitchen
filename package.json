@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "webpack": "webpack -d --watch",
+    "nodemon": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "mongoose": "^4.9.6",
     "mysql": "^2.15.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "request": "^2.87.0"
   }
 }

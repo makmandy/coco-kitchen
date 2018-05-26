@@ -4,8 +4,8 @@ CREATE DATABASE kitchen;
 
 USE kitchen;
 
---INGREDIENTS--
-DROP IF TABLE EXISTS `ingredients`;
+
+DROP TABLE IF EXISTS `ingredients`;
 CREATE TABLE `ingredients` (
   `id`              INT(10) NOT NULL AUTO_INCREMENT,
   `name`            VARCHAR(100) NOT NULL,
@@ -14,8 +14,7 @@ CREATE TABLE `ingredients` (
 );
 
 
---RECIPES--
-DROP IF TABLE EXISTS `recipes`;
+DROP TABLE IF EXISTS `recipes`;
 
 CREATE TABLE `recipes` (
   `id`              INT(10) NOT NULL AUTO_INCREMENT,
@@ -25,8 +24,8 @@ CREATE TABLE `recipes` (
   PRIMARY KEY(`id`)
 );
 
---JOIN TABLE--
-DROP IF TABLE EXISTS `ingredients_recipes`;
+
+DROP TABLE IF EXISTS `ingredients_recipes`;
 
 CREATE TABLE `ingredients_recipes` (
   `id`              INT(10) NOT NULL AUTO_INCREMENT,
