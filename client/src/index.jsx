@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/recipes', {
       params: {
-        ingredient: ''
+        ingredient: 'almond'
       }
     })
     .then(({data}) => {
@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 
   search(input) {
-    console.log('searching');
     axios.post('/recipes', {
         ingredient: input
       })
@@ -48,7 +47,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('rendering');
     return (
       <div>
         <br></br>

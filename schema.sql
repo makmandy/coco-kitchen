@@ -20,7 +20,6 @@ CREATE TABLE `recipes` (
   `id`              INT(10) NOT NULL AUTO_INCREMENT,
   `name`            VARCHAR(100) NOT NULL,  
   `url`             VARCHAR(255) NOT NULL,
-  `imgurl`          VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY(`id`)
 );
 

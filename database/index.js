@@ -17,9 +17,8 @@ connection.connect((err) => {
 const saveRecipe = (recipe) => {
   const name = JSON.stringify(recipe.title);
   const url = JSON.stringify(recipe.href);
-  const imgurl = JSON.stringify(recipe.thumbnail);
-  const queryString = `INSERT INTO recipes (name, url, imgurl) \
-  VALUES (${name}, ${url}, ${imgurl})`;
+  const queryString = `INSERT INTO recipes (name, url) \
+  VALUES (${name}, ${url})`;
 
   connection.query(queryString, (err, result) => {
     if (err) throw err;
@@ -41,8 +40,3 @@ const saveIngredient = (ingredient) => {
 module.exports.saveRecipe = saveRecipe;
 module.exports.saveIngredient = saveIngredient;
 module.exports.connection = connection;
-
-// mysql.server start
-
-// hi coco :)
-// hi googi <3
