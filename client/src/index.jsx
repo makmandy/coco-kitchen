@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/recipes', {
       params: {
-        ingredient: 'banana'
+        ingredient: 'pear'
       }
     })
     .then(({data}) => {
@@ -39,7 +39,6 @@ class App extends React.Component {
       }
     }))
     .then(({data}) => {
-      console.log('data: ', data);
       this.setState({
         recipes: data
       });
