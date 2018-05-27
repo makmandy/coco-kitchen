@@ -45,6 +45,8 @@ var Search = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         null,
@@ -58,7 +60,9 @@ var Search = function (_React$Component) {
           null,
           _react2.default.createElement(
             'button',
-            { onClick: this.search },
+            { onClick: function onClick() {
+                return _this2.props.search(_this2.state.term);
+              } },
             'get cocoRecipes!'
           )
         )

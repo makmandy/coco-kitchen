@@ -11,31 +11,40 @@ class App extends React.Component {
 
     this.state = {
       recipes: []
-    },
+    }
 
-    console.log('constructor');
     this.search = this.search.bind(this);
   }
 
   componentDidMount() {
-    axios.get('/recipes')
-      .then(response => {
-        this.setState({
-          recipes: response.data,
-        });
-      });
+    axios.get('/recipes', {
+      params: {
+        ingredient: 'banana'
+      }
+    })
+    .then(({data}) => {
+      this.setState({
+        recipes: data
+      })
+    });
   }
 
   search(input) {
     axios.post('/recipes', {
-      ingredient: input
-    })
-      .then(({ data }) => {
-        this.setState({
-          recipes: data
-        });
+        ingredient: input
       })
-      .catch((err) => { console.error(err) });
+    .then(() => axios.get('/recipes', {
+      params: {
+        ingredient: input
+      }
+    }))
+    .then(({data}) => {
+      console.log('data: ', data);
+      this.setState({
+        recipes: data
+      });
+    })
+    .catch(err => console.error(err))
   }
 
   render() {

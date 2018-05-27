@@ -65,11 +65,14 @@ var App = function (_React$Component) {
     value: function search(input) {
       var _this3 = this;
 
-      _axios2.default.post('/recipes', {
-        ingredient: input
+      _axios2.default.get('/recipes', {
+        params: {
+          ingredient: input
+        }
       }).then(function (_ref) {
         var data = _ref.data;
 
+        console.log('data: ', data);
         _this3.setState({
           recipes: data
         });

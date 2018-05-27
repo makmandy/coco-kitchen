@@ -1,9 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const {saveRecipe, saveIngredient} = require('../database/index.js');
-const {getRecipesByIngredient, getCocoRecipes} = require('../helpers/recipePuppy.js');
+const {getRecipesByIngredient} = require('../helpers/recipePuppy.js');
 const {connection} = require('../database/index.js');
-const mysql = require('mysql');
 const path = require('path');
 
 const app = express();
@@ -15,20 +14,35 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 
 app.post('/recipes', (req, res) => {
-  var ingredient = req.body.ingredient;
-  getRecipesByIngredient(ingredient, (resp) => {
-    var recipes = resp.results;
-    saveIngredient(ingredient);
-    console.log(recipes);
-    recipes.forEach((recipe) => {
-      saveRecipe(recipe);
-      res.send();
+  let reqUrl = `http://www.recipepuppy.com/api/?q=coconut`;
+  let query = req.query.ingredient;
+
+  if (query !== undefined) {
+    query = query.split(' ').join('+');
+    reqUrl = reqUrl + '&i=' + query;
+  }
+  getRecipesByIngredient(reqUrl, recipes => {
+    var cocoRecipes = [];
+    recipes.forEach((item) => {
+      var recipe = [];
+      var name = item.title;
+      var url = item.href;
+      recipe.push(name, url);
+      cocoRecipes.push(recipe);
     });
+    res.send(cocoRecipes);
   });
 });
 
 app.get('/recipes', (req, res) => {
-  getCocoRecipes((recipes) => {
+  let reqUrl = `http://www.recipepuppy.com/api/?q=coconut`;
+  let query = req.query.ingredient;
+  
+  if (query !== undefined) {
+    query = query.split(' ').join('+');
+    reqUrl = reqUrl + '&i=' + query;
+  }
+  getRecipesByIngredient(reqUrl, recipes => {
     var cocoRecipes = [];
     recipes.forEach((item) => {
       var recipe = [];
@@ -44,3 +58,4 @@ app.get('/recipes', (req, res) => {
 app.listen(port, () => {
   console.log(`listening on port ${port} :)`);
 });
+

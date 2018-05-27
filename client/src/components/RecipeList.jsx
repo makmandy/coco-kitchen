@@ -7,7 +7,7 @@ const renderRecipeList = (props) => {
   }
   return (
     <ul>
-    {props.recipes.map(recipe => <RecipeListItem recipe={recipe} />)}
+    {props.recipes.map((recipe, id) => <RecipeListItem key={id} recipe={recipe} />)}
     </ul>
   );
 };

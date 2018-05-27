@@ -21,8 +21,8 @@ var renderRecipeList = function renderRecipeList(props) {
   return _react2.default.createElement(
     'ul',
     null,
-    props.recipes.map(function (recipe) {
-      return _react2.default.createElement(_RecipeListItem2.default, { recipe: recipe });
+    props.recipes.map(function (recipe, id) {
+      return _react2.default.createElement(_RecipeListItem2.default, { key: id, recipe: recipe });
     })
   );
 };
