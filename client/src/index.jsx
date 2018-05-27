@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/recipes', {
       params: {
-        ingredient: 'pear'
+        ingredient: ''
       }
     })
     .then(({data}) => {
