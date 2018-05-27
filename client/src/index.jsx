@@ -30,6 +30,7 @@ class App extends React.Component {
   }
 
   search(input) {
+    console.log('searching');
     axios.post('/recipes', {
         ingredient: input
       })

@@ -44,8 +44,7 @@ var App = function (_React$Component) {
 
     _this.state = {
       recipes: []
-    }, console.log('constructor');
-    _this.search = _this.search.bind(_this);
+    }, _this.search = _this.search.bind(_this);
     return _this;
   }
 
@@ -58,6 +57,8 @@ var App = function (_React$Component) {
         _this2.setState({
           recipes: response.data
         });
+      }).catch(function (err) {
+        console.error(err);
       });
     }
   }, {
@@ -65,6 +66,7 @@ var App = function (_React$Component) {
     value: function search(input) {
       var _this3 = this;
 
+<<<<<<< HEAD
       _axios2.default.get('/recipes', {
         params: {
           ingredient: input
@@ -73,8 +75,25 @@ var App = function (_React$Component) {
         var data = _ref.data;
 
         console.log('data: ', data);
+=======
+      console.log('searching');
+      _axios2.default.post('/recipes', {
+        ingredient: input
+      }).then(function () {
+        return _axios2.default.get('/recipes', {
+          params: {
+            ingredient: input
+          }
+        });
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        console.log('data', data);
+>>>>>>> master
         _this3.setState({
           recipes: data
+        }, function () {
+          console.log('what does recipes look like', _this3.state.recipes);
         });
       }).catch(function (err) {
         console.error(err);

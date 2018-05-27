@@ -31,6 +31,7 @@ var Search = function (_React$Component) {
     };
 
     _this.onChange = _this.onChange.bind(_this);
+    //this.search = this.search.bind(this);
     return _this;
   }
 
@@ -53,7 +54,7 @@ var Search = function (_React$Component) {
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement('input', { type: 'text', value: this.state.term, placeholder: 'type an ingredient to begin!', onChange: this.onChange, onSubmit: this.search })
+          _react2.default.createElement('input', { type: 'text', value: this.state.term, placeholder: 'type an ingredient to begin!', onChange: this.onChange })
         ),
         _react2.default.createElement(
           'div',
@@ -61,7 +62,11 @@ var Search = function (_React$Component) {
           _react2.default.createElement(
             'button',
             { onClick: function onClick() {
+<<<<<<< HEAD
                 return _this2.props.search(_this2.state.term);
+=======
+                console.log(_this2.props);_this2.props.search(_this2.state.term);
+>>>>>>> master
               } },
             'get cocoRecipes!'
           )

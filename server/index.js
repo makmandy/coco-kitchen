@@ -51,9 +51,11 @@ app.get('/recipes', (req, res) => {
       recipe.push(name, url);
       cocoRecipes.push(recipe);
     });
+    console.log('what are the recipes', cocoRecipes)
     res.send(cocoRecipes);
   });
 });
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port} :)`);

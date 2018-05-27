@@ -28,7 +28,6 @@ const saveRecipe = (recipe) => {
 };
 
 const saveIngredient = (ingredient) => {
-  const ing = JSON.stringify(ingredient);
   const queryString = `INSERT INTO ingredients (name) \
   VALUES (${ing})`;
 
