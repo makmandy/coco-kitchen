@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS `ingredients`;
 
 CREATE TABLE `ingredients` (
   `id`              INT(10) NOT NULL AUTO_INCREMENT,
-  `name`            VARCHAR(100) NOT NULL,
+  `name`            VARCHAR(100) NOT NULL UNIQUE,
   PRIMARY KEY(`id`)
 );
 
@@ -18,8 +18,8 @@ DROP TABLE IF EXISTS `recipes`;
 
 CREATE TABLE `recipes` (
   `id`              INT(10) NOT NULL AUTO_INCREMENT,
-  `name`            VARCHAR(100) NOT NULL,  
-  `url`             VARCHAR(255) NOT NULL,
+  `name`            VARCHAR(100) NOT NULL UNIQUE,
+  `url`             VARCHAR(255) NOT NULL UNIQUE,
   PRIMARY KEY(`id`)
 );
 

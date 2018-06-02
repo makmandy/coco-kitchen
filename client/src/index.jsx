@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <br></br>
-        <h1 id="h1">CocoKitchen</h1>
+        <a href="#"><h1 id="h1">CocoKitchen</h1></a>
         <h4 id="heading">recipe finder for coconut lovers</h4>
         <Search search={this.search} />
         <RecipeList recipes={this.state.recipes} />
