@@ -18,7 +18,7 @@ const saveRecipe = (recipe) => {
   const name = JSON.stringify(recipe.title);
   const url = JSON.stringify(recipe.href);
   const queryString = `INSERT INTO recipes (name, url) \
-  VALUES (${name}, ${url})`;
+  VALUES ('${name}', '${url}')`;
 
   connection.query(queryString, (err, result) => {
     if (err) throw err;
@@ -28,7 +28,7 @@ const saveRecipe = (recipe) => {
 
 const saveIngredient = (ingredient) => {
   const queryString = `INSERT INTO ingredients (name) \
-  VALUES (${ing})`;
+  VALUES ('${ingredient}')`;
 
   connection.query(queryString, (err, result) => {
     if (err) throw err;

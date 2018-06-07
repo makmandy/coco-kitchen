@@ -2,9 +2,24 @@ import React from 'react';
 
 var RecipeListItem = ({recipe}) => {
   return (
-  <li>
-  <a href={recipe[1]}>{recipe[0]}</a>
-  </li>
+    <div className="card">
+      <div className="card-content">
+      <p>{recipe[0]}</p>
+      </div>
+    <footer className="card-footer">
+      <p className="card-footer-item">
+        <span>
+          <a href={recipe[1]}>see recipe</a>
+        </span>
+      </p>
+      <p className="card-footer-item">
+        <span>
+          <a href="#">add to faves</a>
+        </span>
+      </p>
+    </footer>
+    <p></p>
+    </div>
   )
 };
 

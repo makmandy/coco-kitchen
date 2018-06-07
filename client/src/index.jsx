@@ -49,14 +49,31 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <br></br>
-        <h1 id="h1">CocoKitchen</h1>
-        <h4 id="heading">recipe finder for coconut lovers</h4>
-        <Search search={this.search} />
-        <RecipeList recipes={this.state.recipes} />
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">
+                CocoKitchen
+              </h1>
+              <h2 className="subtitle">
+                recipe finder for coconut lovers
+              </h2>
+            </div>
+          </div>
+        </section>
+        <div>
+          <br></br>
+          <nav className="level">
+            <Search search={this.search} />
+          </nav>
+          <div className="level">
+            <div className="level-item has-text-centered"></div>
+            <RecipeList recipes={this.state.recipes} />
+            <div className="level-item has-text-centered"></div>
+          </div>
+        </div>
       </div>
     )
-
   }
 }
 

@@ -21,14 +21,18 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <input type="text" value={this.state.term} placeholder="type an ingredient to begin!" onChange ={this.onChange}></input>
-          </div>
+        <div className="level-item has-text-centered">
           <div>
-        <button onClick={()=> this.props.search(this.state.term)}>get cocoRecipes!</button>
+            <div className="field">
+              <div className="control">
+                <input className="input is-primary" type="text" placeholder="type an ingredient!" onChange={(e) => {this.onChange(e)}} />
+              </div>
+            </div>
+            <p>
+              <a className="button is-primary" onClick={()=> this.props.search(this.state.term)}>search</a>
+            </p>
+          </div>
         </div>
-      </div>
     )
   }
 }

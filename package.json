@@ -4,7 +4,7 @@
   "description": "Recipe finder for coconut lovers",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "webpack": "webpack -d --watch",
     "nodemon": "nodemon server/index.js"
   },
@@ -30,6 +30,7 @@
     "axios": "0.18.0",
     "body-parser": "^1.17.0",
     "bootstrap": "^4.0.0-alpha.2",
+    "bulma": "^0.7.1",
     "express": "^4.15.0",
     "lodash": "^4.6.1",
     "mongoose": "^4.9.6",

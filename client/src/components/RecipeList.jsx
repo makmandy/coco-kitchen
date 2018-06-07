@@ -6,9 +6,9 @@ const renderRecipeList = (props) => {
     return null;
   }
   return (
-    <ul>
-    {props.recipes.map((recipe, id) => <RecipeListItem key={id} recipe={recipe} />)}
-    </ul>
+      <div>
+        {props.recipes.map((recipe, id) => <RecipeListItem key={id} recipe={recipe} />)}
+      </div>
   );
 };
 
