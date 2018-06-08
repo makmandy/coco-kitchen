@@ -4,21 +4,19 @@ var RecipeListItem = ({recipe}) => {
   return (
     <div className="card">
       <div className="card-content">
-      <p>{recipe[0]}</p>
+      <p>{recipe.title}</p>
       </div>
     <footer className="card-footer">
       <p className="card-footer-item">
-        <span>
-          <a href={recipe[1]}>see recipe</a>
-        </span>
+            <a href={recipe.href}>see recipe</a>
       </p>
       <p className="card-footer-item">
-        <span>
-          <a href="#">add to faves</a>
-        </span>
+        <a href="#">add to faves</a>
       </p>
     </footer>
-    <p></p>
+    <p>
+      
+    </p>
     </div>
   )
 };
