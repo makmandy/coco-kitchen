@@ -23,6 +23,7 @@ class App extends React.Component {
       }
     })
     .then(({data}) => {
+      console.log('data from front: ', data);
       this.setState({
         recipes: data
       })
@@ -33,11 +34,6 @@ class App extends React.Component {
     axios.post('/recipes', {
         ingredient: input
       })
-    .then(() => axios.get('/recipes', {
-      params: {
-        ingredient: input
-      }
-    }))
     .then(({data}) => {
       this.setState({
         recipes: data
@@ -66,10 +62,8 @@ class App extends React.Component {
           <nav className="level">
             <Search search={this.search} />
           </nav>
-          <div className="level">
-            <div className="level-item has-text-centered"></div>
+          <div>
             <RecipeList recipes={this.state.recipes} />
-            <div className="level-item has-text-centered"></div>
           </div>
         </div>
       </div>

@@ -33,6 +33,7 @@
     "body-parser": "^1.17.0",
     "bootstrap": "^4.0.0-alpha.2",
     "bulma": "^0.7.1",
+    "bulma-start": "0.0.2",
     "express": "^4.15.0",
     "lodash": "^4.6.1",
     "mongoose": "^4.9.6",

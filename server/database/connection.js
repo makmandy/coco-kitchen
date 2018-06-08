@@ -17,7 +17,9 @@ connection.connect((err) => {
 const saveRecipe = (recipe) => {
   const name = JSON.stringify(recipe.title);
   const url = JSON.stringify(recipe.href);
-  const queryString = `INSERT INTO recipes (name, url) \
+  // ingredients, thumbnail
+  // do i need to stringify???
+  const queryString = `INSERT INTO recipes (name, href, ingredients, thumbnail) \
   VALUES ('${name}', '${url}')`;
 
   connection.query(queryString, (err, result) => {

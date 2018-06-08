@@ -8,14 +8,13 @@ class Search extends React.Component {
       term: ''
     };
 
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  onChange(e) {
+  handleChange(e) {
     this.setState({
       term: e.target.value
     });
-    console.log(this.state.term);
   }
 
 
@@ -25,12 +24,10 @@ class Search extends React.Component {
           <div>
             <div className="field">
               <div className="control">
-                <input className="input is-primary" type="text" placeholder="type an ingredient!" onChange={(e) => {this.onChange(e)}} />
+                <input className="input is-primary" type="text" placeholder="type an ingredient!" handleChange={(e) => {this.onChange(e)}} />
               </div>
             </div>
-            <p>
               <a className="button is-primary" onClick={()=> this.props.search(this.state.term)}>search</a>
-            </p>
           </div>
         </div>
     )
