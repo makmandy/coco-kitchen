@@ -12,11 +12,11 @@ class Search extends React.Component {
   }
 
   handleChange(e) {
+    e.preventDefault();
     this.setState({
       term: e.target.value
     });
   }
-
 
   render() {
     return (
@@ -24,10 +24,10 @@ class Search extends React.Component {
           <div>
             <div className="field">
               <div className="control">
-                <input className="input is-primary" type="text" placeholder="type an ingredient!" handleChange={(e) => {this.onChange(e)}} />
+                <input className="input is-info" type="text" placeholder="type an ingredient!" onChange={(e)=>this.handleChange(e)}/>
               </div>
             </div>
-              <a className="button is-primary" onClick={()=> this.props.search(this.state.term)}>search</a>
+              <a className="button is-primary" onClick={()=> this.props.search(this.state.term)}>get cocorecipes</a>
           </div>
         </div>
     )

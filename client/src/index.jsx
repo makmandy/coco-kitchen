@@ -16,6 +16,18 @@ class App extends React.Component {
     this.search = this.search.bind(this);
   }
 
+  search(input) {
+    axios.post('/recipes', {
+        ingredient: input
+      })
+    .then(({data}) => {
+      this.setState({
+        recipes: data
+      });
+    })
+    .catch(err => console.error(err))
+  }
+
   componentDidMount() {
     axios.get('/recipes', {
       params: {
@@ -30,22 +42,10 @@ class App extends React.Component {
     });
   }
 
-  search(input) {
-    axios.post('/recipes', {
-        ingredient: input
-      })
-    .then(({data}) => {
-      this.setState({
-        recipes: data
-      });
-    })
-    .catch(err => console.error(err))
-  }
-
   render() {
     return (
       <div>
-        <section className="hero is-primary">
+        <section className="hero is-primary has-text-centered">
           <div className="hero-body">
             <div className="container">
               <h1 className="title">
