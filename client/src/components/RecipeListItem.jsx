@@ -28,13 +28,15 @@ class RecipeListItem extends React.Component {
                 </p>
               </div>
               <div>
-                <span className="tag is-danger">{this.state.ingredients[0]}</span>
-                <span className="tag is-success">{this.state.ingredients[1]}</span>
-                <span className="tag is-warning">{this.state.ingredients[2]}</span>
+                <span className="tag is-danger">{this.state.ingredients[1]}</span>
+                <span className="tag is-success">{this.state.ingredients[2]}</span>
+                {this.state.ingredients.length > 3 ?
+                <span className="tag is-warning">{this.state.ingredients[3]}</span>
+                : null}
                 {this.state.ingredients.length > 5 ?
                 <div>
-                  <span className="tag is-primary">{this.state.ingredients[3]}</span>
-                  <span className="tag is-info">{this.state.ingredients[4]}</span>
+                  <span className="tag is-primary">{this.state.ingredients[4]}</span>
+                  <span className="tag is-info">{this.state.ingredients[5]}</span>
                 </div>:null}
               </div>
                 <nav className="level">
@@ -44,7 +46,7 @@ class RecipeListItem extends React.Component {
                   <div> </div>
               </footer>
                   <div className="level-right">
-                  <button className="button is-danger is-small is-rounded" onClick={()=>this.toggleFave}>add to &hearts;</button>
+                  <button className="button is-danger is-small is-rounded is-focused" onClick={()=>this.toggleFave}>add to &hearts;</button>
                   </div>
                 </nav>
             </div>

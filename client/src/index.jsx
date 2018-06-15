@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Search from './components/Search.jsx';
 import RecipeList from './components/RecipeList.jsx';
-import RecipeListItem from './components/RecipeListItem.jsx';
 
 class App extends React.Component {
   constructor(props) {
