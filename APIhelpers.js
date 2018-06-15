@@ -12,4 +12,3 @@ const getRecipesByIngredient = (requestUrl, callback) => {
 
 
 module.exports.getRecipesByIngredient = getRecipesByIngredient;
-
