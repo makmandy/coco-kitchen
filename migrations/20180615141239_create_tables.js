@@ -9,13 +9,15 @@ exports.up = (knex, Promise) => {
       table.increments();
       table.string('name').notNullable();
       table.string('href');
+      table.string('thumbnail');
+      table.string('ingredients');
     }),
     knex.schema.createTable('ingredients_recipes', (table) => {
       table.increments();
       table.integer('id_ingredient');
       table.integer('id_recipe');
-    })
-  ])
+    }),
+  ]);
 };
 
 exports.down = (knex, Promise) => {
@@ -23,5 +25,5 @@ exports.down = (knex, Promise) => {
     knex.schema.dropTableIfExists('ingredients'),
     knex.schema.dropTableIfExists('recipes'),
     knex.schema.dropTableIfExists('ingredients_recipes')
-  ])
+  ]);
 };
