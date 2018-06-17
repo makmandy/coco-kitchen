@@ -2,12 +2,12 @@ exports.up = (knex, Promise) => {
   return Promise.all([
     knex.schema.createTable('ingredients', (table) => {
       table.increments();
-      table.string('name').unique().notNullable();
+      table.string('name');
       table.integer('count').defaultTo(0);
     }),
     knex.schema.createTable('recipes', (table) => {
       table.increments();
-      table.string('name').notNullable();
+      table.string('name');
       table.string('href');
       table.string('thumbnail');
       table.string('ingredients');

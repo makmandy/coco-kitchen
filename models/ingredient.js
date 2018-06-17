@@ -3,25 +3,27 @@ const db = require('./db.js');
 
 exports.handleIngredient = (ingredient) => {
   return db('ingredients').select('*')
-    .where('ingredient', ingredient)
+    .where('name', ingredient)
     .then((result) => {
       if (result.length === 0) {
-        db('ingredients').insert({ ingredient });
+        db('ingredients').insert('name', ingredient)
+          .then(() => console.log(`${ingredient} added to DB!`));
       } else {
-        db('ingredients').where('ingredient', ingredient)
-          .increment('count', 1);
+        db('ingredients').where('name', ingredient)
+          .increment('count', 1)
+          .then(() => console.log(`${ingredient} count incremented!`));
       }
     })
-    .then(() => console.log(ingredient, ' added to database!'))
-    .catch(err => console.error(`Error removing ${ingredient} from database: ${err}`));
+    .then(() => console.log(`${ingredient} handled by DB!`))
+    .catch(err => console.error(`Error adding ${ingredient} to database: ${err}`));
 };
 
 exports.associateRecipeWithIngredient = (ingredient, recipeID) => {
-  return db('ingredients').select('id').where('ingredient', ingredient)
+  return db('ingredients').select('id').where('name', ingredient)
     .then((id) => {
       db('ingredients_recipes').insert({ id_ingredient: id, id_recipe: recipeID });
     });
-  };
+};
 
 exports.getPopularIngredients = () => {
   return db('ingredients').orderBy('count', 'desc');
