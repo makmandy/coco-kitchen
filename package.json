@@ -4,7 +4,7 @@
   "description": "Recipe finder for coconut lovers",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "webpack": "webpack -d --watch",
     "nodemon": "nodemon server/index.js",
     "dev": "npm run webpack & nodemon server/index.js"
