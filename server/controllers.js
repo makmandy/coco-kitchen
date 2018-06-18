@@ -15,7 +15,10 @@ exports.handleSearch = (req, res) => {
   API.getRecipesByIngredient(reqUrl, (results) => {
     res.send(results);
     results.forEach((recipe) => {
+      recipes.getRecipeID(recipe);
       recipes.saveRecipe(recipe);
+      console.log('recipe.href', recipe.href);
+      ingredients.associateRecipeWithIngredient(req.query.ingredient, recipe.href);
     });
   });
 };

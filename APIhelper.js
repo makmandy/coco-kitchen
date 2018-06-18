@@ -2,14 +2,7 @@ const request = require('request');
 
 exports.getRecipesByIngredient = (requestUrl, callback) => {
   let body = [];
-  const options = {
-    method: 'GET',
-    url: requestUrl,
-    headers: {
-      'Content-type': 'application/json',
-    },
-  };
-  
+
   request.get(requestUrl)
     .on('response', (response) => {
       response.on('data', (chunk) => {
