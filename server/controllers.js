@@ -3,6 +3,7 @@ const recipes = require('../models/recipe.js');
 const API = require('../APIhelper.js');
 
 exports.handleSearch = (req, res) => {
+  console.log('query.ingredient: ', req.query.ingredient)
   let reqUrl = 'http://www.recipepuppy.com/api/?q=coconut';
   let query = req.query.ingredient;
 
@@ -17,8 +18,6 @@ exports.handleSearch = (req, res) => {
     results.forEach((recipe) => {
       recipes.getRecipeID(recipe);
       recipes.saveRecipe(recipe);
-      console.log('recipe.href', recipe.href);
-      ingredients.associateRecipeWithIngredient(req.query.ingredient, recipe.href);
     });
   });
 };

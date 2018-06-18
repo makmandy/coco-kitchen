@@ -2,9 +2,10 @@ const db = require('./db.js');
 
 exports.saveRecipe = (recipe) => {
   return db('recipes').insert({
-    name: recipe.name,
+    name: recipe.title,
     href: recipe.href,
     thumbnail: recipe.thumbnail,
+    ingredients: recipe.ingredients,
   })
     .then(() => console.log('Recipe added to database!'))
     .catch(err => console.error('Error adding saving to the database', err));

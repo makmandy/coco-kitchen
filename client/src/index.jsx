@@ -16,9 +16,11 @@ class App extends React.Component {
   }
 
   search(input) {
-    axios.post('/recipes', {
+    axios.get('/recipes', {
+      params: {
         ingredient: input
-      })
+      }
+    })
     .then(({data}) => {
       this.setState({
         recipes: data
@@ -34,7 +36,6 @@ class App extends React.Component {
       }
     })
     .then(({data}) => {
-      console.log('data from front: ', data);
       this.setState({
         recipes: data
       })
