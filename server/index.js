@@ -8,7 +8,7 @@ const port = process.env.PORT || 3306;
 
 app.use('/', express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/recipes', controller.handleSearch);
 // get /ingredients

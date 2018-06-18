@@ -45,6 +45,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
         <section className="hero is-primary has-text-centered">
           <div className="hero-body">
             <div className="container">
@@ -66,6 +67,13 @@ class App extends React.Component {
             <RecipeList recipes={this.state.recipes} />
           </div>
         </div>
+=======
+        <br></br>
+        <a href="#"><h1 id="h1">CocoKitchen</h1></a>
+        <h4 id="heading">recipe finder for coconut lovers</h4>
+        <Search search={this.search} />
+        <RecipeList recipes={this.state.recipes} />
+>>>>>>> 667cd26f8a11a09f2ccc225d1ffac2fa3bd13482
       </div>
     )
   }
