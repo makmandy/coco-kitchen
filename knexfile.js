@@ -7,4 +7,12 @@ module.exports = {
       database: 'cocokitchen',
     },
   },
+  production: {
+    client: 'mysql',
+    connection: {
+      host: process.env.DB_HOST,
+      user: 'cocokitchen',
+      password: process.env.DB_PASSWORD,
+    },
+  },
 };

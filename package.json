@@ -4,10 +4,10 @@
   "description": "Recipe finder for coconut lovers",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "webpack -p && knex migrate:latest && node server/index.js",
     "webpack": "webpack -d --watch",
     "nodemon": "nodemon server/index.js",
-    "dev": "npm run webpack & nodemon server/index.js"
+    "dev": "npm run webpack && nodemon server/index.js"
   },
   "repository": {
     "type": "git",

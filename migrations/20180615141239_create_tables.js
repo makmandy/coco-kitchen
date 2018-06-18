@@ -11,6 +11,7 @@ exports.up = (knex, Promise) => {
       table.string('href');
       table.string('thumbnail');
       table.string('ingredients');
+      table.integer('count').defaultTo(0);
     })
   ]);
 };
@@ -19,6 +20,5 @@ exports.down = (knex, Promise) => {
   return Promise.all([
     knex.schema.dropTableIfExists('ingredients'),
     knex.schema.dropTableIfExists('recipes'),
-    // knex.schema.dropTableIfExists('ingredients_recipes')
   ]);
 };
