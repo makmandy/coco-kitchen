@@ -13,6 +13,7 @@ module.exports = {
       host: process.env.DB_HOST,
       user: 'cocokitchen',
       password: process.env.DB_PASSWORD,
+      database: 'cocokitchen',
     },
   },
 };
